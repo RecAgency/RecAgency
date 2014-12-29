@@ -6,6 +6,9 @@ using System.Web.Routing;
 using Ninject;
 using System.Web.Mvc;
 using System.Configuration;
+using RecAgency.Abstract;
+using RecAgency.Concrete;
+using RecAgency.Entities;
 
 namespace RecAgency.Infrastructure
 {
@@ -23,7 +26,8 @@ namespace RecAgency.Infrastructure
         }
         private void AddBindings()
         {
-
+            ninjectKernel.Bind<ISummaryRepository>().To<EFSummaryRepository>();
+            ninjectKernel.Bind<IVacancyRepository>().To<EFVacancyRepository>();
         }
     }
 }
