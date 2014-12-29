@@ -1,0 +1,14 @@
+﻿@model RecAgency.Entities.Summary
+
+@{
+    ViewBag.Title = "Edit summary # " + @Model.Id;
+}
+
+<h2>Edit summary # @Model.Id</h2>
+
+@using (Html.BeginForm("Edit", "Applicant"))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Index")
+}

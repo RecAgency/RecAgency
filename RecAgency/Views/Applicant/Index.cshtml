@@ -1,7 +1,69 @@
-﻿@model RecAgency.Entities.Summary
+﻿@model IEnumerable<RecAgency.Entities.Summary>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Ваши резюме</h2>
+
+<table class="grid" border="1">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Speciality
+        </th>
+        <th>
+            Education
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Salary
+        </th>
+        <th>
+            Scope of work
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Id.ToString(), "Edit", new { item.Id })
+            </td>
+            <td>
+                @item.Date
+            </td>
+            <td>
+                @item.Speciality
+            </td>
+            <td>
+                @item.Education
+            </td>
+            <td>
+                @item.City
+            </td>
+            <td>
+                @item.Salary
+            </td>
+            <td>
+                @item.ScopeOfWork
+            </td>
+            <td>
+                @using (Html.BeginForm("Delete", "Applicant"))
+                {
+                    @Html.Hidden("Id", item.Id)
+                    <input type="submit" value="Delete" />
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<p>@Html.ActionLink("Add a new summary", "Create")</p>
