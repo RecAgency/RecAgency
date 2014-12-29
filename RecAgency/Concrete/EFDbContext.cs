@@ -11,7 +11,5 @@ namespace RecAgency.Concrete
     {
         public DbSet<Summary> Summaries { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
-        public DbSet<UserEmpl> UserEmpl { get; set; }
-        public DbSet<SummaryUser> SummaryUser { get; set; }
     }
 }
