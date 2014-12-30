@@ -6,12 +6,9 @@
 
 <h2>Edit summary # @Model.Id</h2>
 
-@using (Html.BeginForm("Edit", "Applicant"))
+@using (Html.BeginForm("EditResume", "Meneger"))
 {
     @Html.EditorForModel()
-    <input type="submit" value="Save" />
+    <input type="submit" value="EditResume" />
     @Html.ActionLink("Cancel", "Index")
 }
-
-
-

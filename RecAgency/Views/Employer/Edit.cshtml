@@ -8,17 +8,8 @@
 
 @using (Html.BeginForm("Edit", "Employer"))
 {
-        if (!User.IsInRole("Meneger")) {
     @Html.EditorForModel()
     <input type="submit" value="Save" />
-    @Html.ActionLink("Cancel", "Index")
-}
-}
-@using (Html.BeginForm("EditVacancy", "Meneger"))
-{
-        if (User.IsInRole("Meneger")) {
-    @Html.EditorForModel()
-    <input type="submit" value="EditVacancy" />
     @Html.ActionLink("Cancel", "Index")
 }
 }

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<RecAgency.Entities.Vacancy>
 @foreach (var item in Model) {
     <tr>
-        <td>@Html.ActionLink(item.Id.ToString(), "Edit", new { Controller = "Employer", vacancyId = item.Id })</td>
+        <td>@Html.ActionLink(item.Id.ToString(), "EditVacancy", new { Controller = "Meneger", vacancyId = item.Id })</td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
