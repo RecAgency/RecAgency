@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<RecAgency.Entities.Vacancy>
 @foreach (var item in Model) {
     <tr>
+        <td>@Html.ActionLink(item.Id.ToString(), "EditVacancy", new { Controller = "Meneger", vacancyId = item.Id })</td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
@@ -16,6 +17,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.UserId)
         </td>
+        <td>
+            @using (Html.BeginForm("DeleteVacancy", "Meneger"))
+            {
+                @Html.Hidden("Id", item.Id)
+                <input type="submit" value="DeleteVacancy" />
+            }
+        </td>
+
     </tr>
 }
 

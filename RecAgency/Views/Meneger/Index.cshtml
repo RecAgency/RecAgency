@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Hello, Meneger!";
 }
 @section featured {
     <section class="featured">
@@ -25,6 +25,7 @@
                         @Html.Action("ListResume")
                     </tbody>
                 </table>
+                <p>@Html.ActionLink("Add a new resume", "CreateResume")</p>
                 <br />
                 <table border="1">
                     <thead><tr><td></td><td>Title</td><td>Responsibility</td><td>Requirements</td><td>Conditions</td><td>UserId</td><td></td></tr></thead>
@@ -32,7 +33,13 @@
                         @Html.Action("ListVacancy")
                     </tbody>
                 </table>
+                <p>@Html.ActionLink("Add a new vacancy", "CreateVacancy")</p>
             }
+        </div>
+        <div>
+
+
+
         </div>
     </body>
 

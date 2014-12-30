@@ -11,31 +11,31 @@ namespace RecAgency.Controllers
 {
     public class HomeController : Controller
     {
-              //  private IVacancyRepository Vrepository;
-              //  private ISummaryRepository Srepository;
-        public HomeController()//IVacancyRepository vrepo, ISummaryRepository srepo)
-        {
-           // this.Vrepository = vrepo;
-           // this.Srepository = srepo;
-        }
 
 
         public ActionResult Index()
         {
             ViewBag.Message = "RecAgency";
-            return View();
+            if (User.IsInRole("Meneger"))
+            {
+                return RedirectToAction("Index", new { Controller = "Meneger" });
+            }
+            else
+            {
+                return View();
+            }
         }
 
 
-        public ActionResult ListResume()
-        {
-            return View();//Srepository.Summaries.ToList());
-        }
 
-        public ActionResult ListVacancy()
-        {
-            return View();//Vrepository.Vacancies.ToList());
-        }
+
+
+
+
+
+
+
+
 
         public ActionResult About()
         {
