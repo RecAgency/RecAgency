@@ -8,7 +8,19 @@
 
 @using (Html.BeginForm("Edit", "Applicant"))
 {
+    if (!User.IsInRole("Meneger")) {
     @Html.EditorForModel()
     <input type="submit" value="Save" />
     @Html.ActionLink("Cancel", "Index")
+    }
+}
+
+
+@using (Html.BeginForm("EditResume", "Meneger"))
+{
+        if (User.IsInRole("Meneger")) {
+    @Html.EditorForModel()
+    <input type="submit" value="EditResume" />
+    @Html.ActionLink("Cancel", "Index")
+}
 }

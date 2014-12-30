@@ -7,7 +7,7 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-            <td>@Html.ActionLink(item.Id.ToString(), "EditResume", new { Controller = "Meneger", summaryId = item.Id })</td></td>
+            <td>@Html.ActionLink(item.Id.ToString(), "Edit", new { Controller = "Applicant", summaryId = item.Id })</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>

@@ -15,15 +15,7 @@ namespace RecAgency.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "RecAgency";
-            if (User.IsInRole("Meneger"))
-            {
-                return RedirectToAction("Index", new { Controller = "Meneger" });
-            }
-            else
-            {
                 return View();
-            }
         }
 
 
