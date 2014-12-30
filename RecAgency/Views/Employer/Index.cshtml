@@ -1,33 +1,27 @@
-﻿@model IEnumerable<RecAgency.Entities.Summary>
+﻿@model IEnumerable<RecAgency.Entities.Vacancy>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Ваши резюме</h2>
+<h2>Index</h2>
+
+<h2>Ваши вакансии</h2>
 
 <table class="grid" border="1">
     <tr>
+        <th></th>
         <th>
-            ID
+            Title
         </th>
         <th>
-            Date
+            Responsibility
         </th>
         <th>
-            Speciality
+            Requirements
         </th>
         <th>
-            Education
-        </th>
-        <th>
-            City
-        </th>
-        <th>
-            Salary
-        </th>
-        <th>
-            Scope of work
+            Conditions
         </th>
         <th></th>
     </tr>
@@ -39,32 +33,27 @@
                 @Html.ActionLink(item.Id.ToString(), "Edit", new { item.Id })
             </td>
             <td>
-                @item.Date
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @item.Speciality
+                @Html.DisplayFor(modelItem => item.Responsibility)
             </td>
             <td>
-                @item.Education
+                @Html.DisplayFor(modelItem => item.Requirements)
             </td>
             <td>
-                @item.City
+                @Html.DisplayFor(modelItem => item.Conditions)
             </td>
             <td>
-                @item.Salary
-            </td>
-            <td>
-                @item.ScopeOfWork
-            </td>
-            <td>
-                @using (Html.BeginForm("Delete", "Applicant"))
+                @using (Html.BeginForm("Delete", "Employer"))
                 {
                     @Html.Hidden("Id", item.Id)
                     <input type="submit" value="Delete" />
                 }
             </td>
+
         </tr>
     }
 
 </table>
-<p>@Html.ActionLink("Add a new summary", "Create")</p>
+<p>@Html.ActionLink("Add a new vacancy", "Create")</p>
