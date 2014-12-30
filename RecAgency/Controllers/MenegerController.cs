@@ -21,6 +21,16 @@ namespace RecAgency.Controllers
             this.Srepository = srepo;
         }
 
+        public ViewResult CreateVacancy()
+        {
+            return View("EditVacancy", new Vacancy());
+        }
+
+        public ViewResult CreateResume()
+        {
+            return View("EditResume", new Summary());
+        }
+
         public ActionResult EditResume(int summaryId)
         {
             Summary summary = Srepository.Summaries.FirstOrDefault(s => s.Id == summaryId);
