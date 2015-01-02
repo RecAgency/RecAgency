@@ -28,6 +28,7 @@ namespace RecAgency.Infrastructure
         {
             ninjectKernel.Bind<ISummaryRepository>().To<EFSummaryRepository>();
             ninjectKernel.Bind<IVacancyRepository>().To<EFVacancyRepository>();
+            ninjectKernel.Bind<ISummaryAndVacancyRepository>().To<EFSummaryAndVacancyRepository>();
         }
     }
 }

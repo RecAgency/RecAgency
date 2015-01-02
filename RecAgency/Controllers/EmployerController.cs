@@ -13,9 +13,12 @@ namespace RecAgency.Controllers
     public class EmployerController : Controller
     {
         private IVacancyRepository repository;
-        public EmployerController(IVacancyRepository repo)
+        private ISummaryAndVacancyRepository savrepository;
+
+        public EmployerController(IVacancyRepository repo,ISummaryAndVacancyRepository savrepo)
         {
             this.repository = repo;
+            this.savrepository = savrepo;
         }
 
         //
@@ -24,6 +27,12 @@ namespace RecAgency.Controllers
         public ActionResult Index()
         {
             return View(repository.Vacancies.Where(s => s.UserId == WebMatrix.WebData.WebSecurity.CurrentUserId));
+        }
+
+        public ActionResult getApplicant(int VacancyId)
+        {
+
+            return View(savrepository.SummaryAndVacancy.Where(x=>x.VacancyId == VacancyId));
         }
 
         public ActionResult Edit(int vacancyId)

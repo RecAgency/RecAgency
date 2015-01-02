@@ -10,6 +10,7 @@ namespace RecAgency.Concrete
     public class EFDbContext: DbContext
     {
         public DbSet<Summary> Summaries { get; set; }
+        public DbSet<SummaryAndVacancy> SummaryAndVacancy { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
     }
 }

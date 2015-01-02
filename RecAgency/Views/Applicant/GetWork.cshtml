@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RecAgency.Entities.SummaryAndVacancy>
+
+@{
+    ViewBag.Title = "GetWork";
+}
+
+<h2>GetWork</h2>
+
+<table>
+    <thead><tr><td>Title</td><td>Responsibility</td><td>Requirements</td><td>Conditions</td><td>UserId</td><td></td></tr></thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vac.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vac.Responsibility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vac.Requirements)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vac.Conditions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vac.UserId)
+        </td>
+        <td>
+            @using (Html.BeginForm("DeleteVacancy", "Applicant"))
+            {
+                @Html.Hidden("Id", item.Id)
+                <input type="submit" value="DeleteVacancy" />
+            }
+        </td>
+
+    </tr>
+}
+    </tbody>
+</table>

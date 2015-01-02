@@ -24,6 +24,12 @@
             </tbody>
         </table>
         <p>@Html.ActionLink("Add a new vacancy", "CreateVacancy", new { Controller = "Meneger" })</p>
-    }
+        
+    <p>Выберите номер вакансии: @Html.DropDownList("Vacancy")
+    <br />
+       Выберите номер резюме: @Html.DropDownList("Resume") </p>
+    <input type="submit" value="Save" />
+    } 
+
 </div>
 

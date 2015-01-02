@@ -13,14 +13,24 @@ namespace RecAgency.Controllers
     public class ApplicantController : Controller
     {
         private ISummaryRepository repository;
-        public ApplicantController(ISummaryRepository repo)
+        private ISummaryAndVacancyRepository savrepository;
+        private IVacancyRepository vrepository;
+        public ApplicantController(ISummaryRepository repo, ISummaryAndVacancyRepository savrepo,IVacancyRepository vrepo)
         {
             this.repository = repo;
+            this.savrepository = savrepo;
+            this.vrepository = vrepo;
         }
 
         public ActionResult Index()
         {
             return View(repository.Summaries.Where(s => s.UserId == WebMatrix.WebData.WebSecurity.CurrentUserId));
+        }
+
+        public ActionResult GetWork()
+        {
+            Summary summary = repository.Summaries.Where(s => s.UserId == WebMatrix.WebData.WebSecurity.CurrentUserId).FirstOrDefault();
+                return View(savrepository.SummaryAndVacancy.Where(x => x.SummaryId == summary.Id));
         }
 
         public ActionResult Edit(int summaryId)

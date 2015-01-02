@@ -15,6 +15,26 @@
 }
 
     <body>
+        <div>
+            Для работодателя:
+            @Html.ActionLink("Your vacancy", "Index", new { Controller = "Employer" })
 
+            Для соискателя:
+            @Html.ActionLink("Your resume", "Index", new { Controller = "Applicant" })
+            @Html.ActionLink("Where you can working", "GetWork", new { Controller = "Applicant" })
+
+
+
+
+            @using (Html.BeginForm())
+            {
+                <table border="1">
+                    <thead><tr><td></td><td>Title</td><td>Responsibility</td><td>Requirements</td><td>Conditions</td><td>UserId</td><td></td></tr></thead>
+                    <tbody>
+                        @Html.Action("ListVacancy", new { Controller = "Meneger" })
+                    </tbody>
+                </table>
+            }
+        </div>
     </body>
 

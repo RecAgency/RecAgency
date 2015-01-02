@@ -16,17 +16,32 @@ namespace RecAgency.Controllers
 
         private IVacancyRepository Vrepository;
         private ISummaryRepository Srepository;
-        public MenegerController(IVacancyRepository vrepo, ISummaryRepository srepo)
+        private ISummaryAndVacancyRepository savrepository;
+        public MenegerController(IVacancyRepository vrepo, ISummaryRepository srepo, ISummaryAndVacancyRepository savrepo)
         {
             this.Vrepository = vrepo;
             this.Srepository = srepo;
+            this.savrepository = savrepo;
         }
 
         public ViewResult Index()
         {
+                        
+                ViewBag.Vacancy = new SelectList(Vrepository.Vacancies.ToList(), "Id", "Id");
+                ViewBag.Resume = new SelectList(Srepository.Summaries, "Id", "Id");
             return View();
         }
 
+        [HttpPost]
+        public ViewResult Index(string Vacancy, string Resume)
+        {
+            SummaryAndVacancy SaV = new SummaryAndVacancy();
+            SaV.VacancyId = Convert.ToInt32(Vacancy);
+            SaV.SummaryId = Convert.ToInt32(Resume);
+            savrepository.SaveSaV(SaV);
+            return View();
+
+        }
         public ViewResult CreateVacancy()
         {
             return View("EditVacancy", new Vacancy());

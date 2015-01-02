@@ -16,7 +16,7 @@ namespace RecAgency.Controllers
     {
         public ActionResult Index()
         {
-            if (User.IsInRole("Applicant"))
+            /*if (User.IsInRole("Applicant"))
             {
                 return RedirectToAction("Index", "Applicant");
             }
@@ -24,7 +24,7 @@ namespace RecAgency.Controllers
             {
                 return RedirectToAction("Index", "Employer");
             }
-            else if (User.IsInRole("Meneger"))
+            else*/ if (User.IsInRole("Meneger"))
             {
                 return RedirectToAction("Index", "Meneger");
             }
