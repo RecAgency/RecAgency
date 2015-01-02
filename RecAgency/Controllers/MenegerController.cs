@@ -8,6 +8,7 @@ using RecAgency.Concrete;
 using RecAgency.Entities;
 namespace RecAgency.Controllers
 {
+    [Authorize(Roles = "Meneger")]
     public class MenegerController : Controller
     {
         //
@@ -19,6 +20,11 @@ namespace RecAgency.Controllers
         {
             this.Vrepository = vrepo;
             this.Srepository = srepo;
+        }
+
+        public ViewResult Index()
+        {
+            return View();
         }
 
         public ViewResult CreateVacancy()
@@ -99,12 +105,12 @@ namespace RecAgency.Controllers
         }
         public ActionResult ListResume()
         {
-            return View(Srepository.Summaries.ToList());
+            return View(Srepository.Summaries);
         }
 
         public ActionResult ListVacancy()
         {
-            return View(Vrepository.Vacancies.ToList());
+            return View(Vrepository.Vacancies);
         }
     }
 }

@@ -47,6 +47,11 @@
                 @Html.LabelFor(m => m.Address)
                 @Html.TextBoxFor(m => m.Address)
             </li>
+            <li>
+                <p>Моя роль:</p>
+                @Html.RadioButtonFor(m => m.Role, "Employer")Я работодатель
+                @Html.RadioButtonFor(m => m.Role, "Applicant")Я соискатель
+            </li>
                 </ol>
         <input type="submit" value="Регистрация" />
     </fieldset>

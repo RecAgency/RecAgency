@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<RecAgency.Entities.Vacancy>
+
+@{
+    Layout = null;
+}
+
 @foreach (var item in Model) {
     <tr>
         <td>@Html.ActionLink(item.Id.ToString(), "EditVacancy", new { Controller = "Meneger", vacancyId = item.Id })</td>

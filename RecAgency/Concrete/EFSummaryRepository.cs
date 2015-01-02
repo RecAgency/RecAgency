@@ -27,6 +27,7 @@ namespace RecAgency.Concrete
                 Summary dbEntry = context.Summaries.Find(summary.Id);
                 if (dbEntry != null)
                 {
+                    dbEntry.UserId = summary.UserId;
                     dbEntry.City = summary.City;
                     dbEntry.Date = summary.Date;
                     dbEntry.Education = summary.Education;

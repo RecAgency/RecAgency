@@ -9,6 +9,7 @@ using RecAgency.Entities;
 
 namespace RecAgency.Controllers
 {
+    [Authorize(Roles = "Employer")]
     public class EmployerController : Controller
     {
         private IVacancyRepository repository;
@@ -36,6 +37,7 @@ namespace RecAgency.Controllers
         {
             if (ModelState.IsValid)
             {
+                vacancy.UserId = WebMatrix.WebData.WebSecurity.CurrentUserId;
                 repository.SaveVacancy(vacancy, WebMatrix.WebData.WebSecurity.CurrentUserId);
                 return RedirectToAction("Index");
             }

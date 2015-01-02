@@ -9,6 +9,7 @@ using RecAgency.Entities;
 
 namespace RecAgency.Controllers
 {
+    [Authorize(Roles = "Applicant")]
     public class ApplicantController : Controller
     {
         private ISummaryRepository repository;
@@ -33,6 +34,7 @@ namespace RecAgency.Controllers
         {
             if (ModelState.IsValid)
             {
+                summmary.UserId = WebMatrix.WebData.WebSecurity.CurrentUserId;
                 repository.SaveSummary(summmary, WebMatrix.WebData.WebSecurity.CurrentUserId);
                 return RedirectToAction("Index");
             }

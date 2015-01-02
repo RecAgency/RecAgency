@@ -107,6 +107,7 @@ namespace RecAgency.Models
         [Required]
         [Display(Name = "Адрес")]
         public string Address { get; set; }
+        public string Role { get; set; }
 
 
     }
@@ -116,5 +117,15 @@ namespace RecAgency.Models
         public string Provider { get; set; }
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
+    }
+
+    [Serializable]
+    public class ChoiceRole
+    {
+        public string Role { get; set; }
+        public string[] GetRoles()
+        {
+            return new[] {"Applicant", "Employer"};
+        }
     }
 }

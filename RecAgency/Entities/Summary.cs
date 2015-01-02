@@ -17,7 +17,9 @@ namespace RecAgency.Entities
         public int ScopeOfWork { get; set; }
         public string Salary { get; set; }
         public string City { get; set; }
-        public int? UserId { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public int UserId { get; set; }
 
         public Summary()
         {

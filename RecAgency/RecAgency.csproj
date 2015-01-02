@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenegerController.cs" />
     <Compile Include="Entities\Summary.cs" />
     <Compile Include="Entities\Vacancy.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -326,10 +327,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Applicant\Index.cshtml" />
+    <Content Include="Views\Employer\Edit.cshtml" />
+    <Content Include="Views\Employer\Index.cshtml" />
+    <Content Include="Views\Meneger\EditResume.cshtml" />
+    <Content Include="Views\Meneger\EditVacancy.cshtml" />
+    <Content Include="Views\Meneger\ListResume.cshtml" />
+    <Content Include="Views\Meneger\ListVacancy.cshtml" />
+    <Content Include="Views\Applicant\Edit.cshtml" />
+    <Content Include="Views\Meneger\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Employer\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
