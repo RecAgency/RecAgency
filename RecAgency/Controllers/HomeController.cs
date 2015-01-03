@@ -24,11 +24,15 @@ namespace RecAgency.Controllers
             {
                 return RedirectToAction("Index", "Employer");
             }
-            else*/ if (User.IsInRole("Meneger"))
+            else*/
+            if (User.IsInRole("Meneger"))
             {
                 return RedirectToAction("Index", "Meneger");
             }
+            else
+            {
                 return View();
+            }
         }
 
 

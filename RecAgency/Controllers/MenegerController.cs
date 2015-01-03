@@ -27,7 +27,7 @@ namespace RecAgency.Controllers
         public ViewResult Index()
         {
                         
-                ViewBag.Vacancy = new SelectList(Vrepository.Vacancies.ToList(), "Id", "Id");
+                ViewBag.Vacancy = new SelectList(Vrepository.Vacancies, "Id", "Id");
                 ViewBag.Resume = new SelectList(Srepository.Summaries, "Id", "Id");
             return View();
         }
@@ -76,7 +76,7 @@ namespace RecAgency.Controllers
             if (ModelState.IsValid)
             {
                 Vrepository.SaveVacancy(vacancy, (int)vacancy.UserId);
-                return RedirectToAction("Index", new { Controller = "Home" });
+                return RedirectToAction("Index", new { Controller = "Meneger" });
             }
             else
             {
@@ -88,7 +88,7 @@ namespace RecAgency.Controllers
         public ActionResult DeleteVacancy(int vacancyId)
         {
             Vacancy deleteVacancy = Vrepository.DeleteVacancy(vacancyId);
-            return RedirectToAction("Index", new { Controller = "Home"});
+            return RedirectToAction("Index", new { Controller = "Meneger"});
         }
 
 
@@ -104,7 +104,7 @@ namespace RecAgency.Controllers
             if (ModelState.IsValid)
             {
                 Srepository.SaveSummary(summmary, (int)summmary.UserId);
-                return RedirectToAction("Index", new { Controller = "Home"});
+                return RedirectToAction("Index", new { Controller = "Meneger"});
             }
             else
             {
@@ -116,7 +116,7 @@ namespace RecAgency.Controllers
         public ActionResult DeleteResume(int summaryId)
         {
             Summary deleteSummary = Srepository.DeleteSummary(summaryId);
-            return RedirectToAction("Index", new { Controller = "Home" });
+            return RedirectToAction("Index", new { Controller = "Meneger" });
         }
         public ActionResult ListResume()
         {

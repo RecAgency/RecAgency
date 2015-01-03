@@ -27,10 +27,16 @@ namespace RecAgency.Controllers
             return View(repository.Summaries.Where(s => s.UserId == WebMatrix.WebData.WebSecurity.CurrentUserId));
         }
 
-        public ActionResult GetWork()
+        public ActionResult GetWork(int summaryId)
         {
-            Summary summary = repository.Summaries.Where(s => s.UserId == WebMatrix.WebData.WebSecurity.CurrentUserId).FirstOrDefault();
-                return View(savrepository.SummaryAndVacancy.Where(x => x.SummaryId == summary.Id));
+                return View(savrepository.SummaryAndVacancy.Where(x => x.SummaryId == summaryId));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteVacancy(int Id)
+        {
+            SummaryAndVacancy deleteVacancy = savrepository.DeleteSaV(Id);
+            return RedirectToAction("Index", new { Controller = "Applicant" });
         }
 
         public ActionResult Edit(int summaryId)

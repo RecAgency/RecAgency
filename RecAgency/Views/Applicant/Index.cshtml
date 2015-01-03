@@ -8,6 +8,7 @@
 
 <table class="grid" border="1">
     <tr>
+        <th></th>
         <th>
             ID
         </th>
@@ -35,6 +36,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.ActionLink("Where you can working", "GetWork", new { Controller = "Applicant", summaryId = item.Id })
+            </td>
             <td>
                 @Html.ActionLink(item.Id.ToString(), "Edit", new { item.Id })
             </td>

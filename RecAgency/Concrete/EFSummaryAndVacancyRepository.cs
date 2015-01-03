@@ -24,7 +24,7 @@ namespace RecAgency.Concrete
 
         public SummaryAndVacancy DeleteSaV(int SaVId)
         {
-            SummaryAndVacancy dbEntry = context.SummaryAndVacancy.Find(SaVId);
+            SummaryAndVacancy dbEntry = context.SummaryAndVacancy.Where(x=>x.Id == SaVId).FirstOrDefault();
             if (dbEntry != null)
             {
                 context.SummaryAndVacancy.Remove(dbEntry);

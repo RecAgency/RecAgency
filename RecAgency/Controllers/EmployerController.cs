@@ -35,6 +35,14 @@ namespace RecAgency.Controllers
             return View(savrepository.SummaryAndVacancy.Where(x=>x.VacancyId == VacancyId));
         }
 
+        [HttpPost]
+        public ActionResult DeleteResume(int Id)
+        {
+            SummaryAndVacancy deleteSummary = savrepository.DeleteSaV(Id);
+
+            return RedirectToAction("Index", new { Controller = "Employer" });
+        }
+
         public ActionResult Edit(int vacancyId)
         {
             Vacancy vacancy = repository.Vacancies.FirstOrDefault(s => s.Id == vacancyId);
